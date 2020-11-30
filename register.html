@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BloodBank App</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        crossorigin="anonymous">
+
+    <!-- jQuery and JS bundle w/ Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+    <!--- <link rel="stylesheet" href="assets/css/style.css">-->
+    </link>
+    <script src="registerService.js"></script>
+
+    <h1>Registration </h1>
+
+    <style>
+        h1 {
+            text-align: center;
+            color: black;
+            margin-top: 100px;
+
+        }
+
+        label {
+            font-style: bold;
+            font-weight: 500;
+        }
+
+        #page-content {
+
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            min-width: 50%;
+            min-height: 50%;
+        }
+
+        .center {
+
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+
+
+</head>
+
+<body
+    style="background-image: url(https://www.geetanjalihospital.co.in/images/blood-bank.jpg);background-repeat:no-repeat;background-size:100% 450%">
+
+
+    <header id="header">
+        <!-- Load Header content-->
+    </header>
+    <main class="container-fluid">
+
+
+        <div id="page-content">
+
+
+
+
+
+            <form onsubmit="register()" autocomplete="off">
+                <form action="#" method="POST">
+
+                    <table class="center">
+
+                        <tr>
+
+                            <td> <label>NAME:</label></td>
+                            <td> <input type="text" name="Name" placeholder="Enter your name" id="name" required
+                                    autofocus autocomplete=off /></td>
+                        </tr> </br>
+                        <tr>
+                            <td> <label>PHONE NO:</label></td>
+                            <td> <input type="text" name="phoneno" placeholder="Enter your phone number" id="phoneno"
+                                    required autocomplete="off" maxlenght="10" pattern="[1-9]{1}[0-9]{9}" /></td>
+                        </tr> </br>
+                        <tr>
+                            <td> <label>EMAIL ID:</label></td>
+                            <td> <input type="email" name="email id" placeholder="Enter your mail id" id="email"
+                                    required autocomplete="off" /></td>
+                        </tr></br>
+                        <tr>
+                            <td> <label>GENDER:</label></td>
+                            <td> <input type="radio" name="gender" value="m" id="m">Male
+                                <input type="radio" name="gender" value="f" id="f">Female
+                            </td>
+                        </tr> </br>
+                       
+                            <td> <label for="bloodgrp">CHOOSE A BLOOD GROUP:</label></td>
+                            <td> <select id="bloodgrp" name="bloodgrp">
+                                     <option value="---">--PLEASE SELECT--</option>
+                                    <option value="A+">A+</option>
+                                    <option value="A-">A-</option>
+                                    <option value="A1+">A1+</option>
+                                    <option value="A1-">A1-</option>
+                                    <option value="A1B+">A1B+</option>
+                                    <option value="A1B-">A1B-</option>
+                                    <option value="A2+">A2+</option>
+                                    <option value="A2-">A2-</option>
+                                    <option value="A2B+">A2B+</option>
+                                    <option value="A2B-">A2B-</option>
+                                    <option value="AB+">AB+</option>
+                                    <option value="AB-">AB-</option>
+                                    <option value="B+">B+</option>
+                                    <option value="B-">B-</option>
+                                    <option value="O+">O+</option>
+                                    <option value="O-">O-</option>
+                                    <option value="Others">Others</option>
+                                </select></td>
+                        </tr></br>
+                        <tr>
+                            <td> <label for="state">CHOOSE A STATE:</label></td>
+                            <td> <select id="state" name="state" required>
+                                    <option value="---">--PLEASE SELECT--</option>
+                                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                    <option value="Assam">Assam</option>
+                                    <option value="Bihar">Bihar</option>
+                                    <option value="Chandigarh">Chandigarh</option>
+                                    <option value="Delhi">Delhi</option>
+                                    <option value="Goa">Goa</option>
+                                    <option value="Gujarat">Gujarat</option>
+                                    <option value="Haryana">Haryana</option>
+                                    <option value="Jammu and kashmir">Jammu and kashmir </option>
+                                    <option value="Karnataka">Karnataka </option>
+                                    <option value="Kerala">Kerala</option>
+                                    <option value="Ladakh">Ladakh</option>
+                                    <option value="Maharashtra">Maharashtra</option>
+                                    <option value="Puducherry">Puducherry</option>
+                                    <option value="TamilNadu">TamilNadu</option>
+                                    <option value="West-Bengal">West-Bengal</option>
+                                    <option value="Others">Others</option>
+                                </select></td>
+                        </tr> </br>
+                        <tr>
+                            <td> <label>CITY:</label></td>
+                            <td> <input type="text" name="city" placeholder="Enter your City" id="city"
+                                    autocomplete=off /></td>
+                        </tr> </br>
+                        <tr>
+                            <td> <label>PASSWORD:</label></td>
+                            <td> <input type="password" name="pass" id="password" required></td>
+                        </tr> </br>
+                        <tr>
+                            <td><input type="submit" class="btn btn-success"  value="Register"></td>
+                        </tr>
+                    </table>
+                </form>
+            </form>
+        </div>
+    </main>
+    <script>
+        $("#header").load("header.html");
+        function register() {
+            event.preventDefault();
+            var name = document.getElementById("name").value;
+            var phoneNo = document.getElementById("phoneno").value;
+            var email = document.getElementById("email").value;
+            let genderOptions = document.getElementsByName("gender");
+            let gender = null;
+            for (let option of genderOptions) {
+                if (option.checked) {
+                    gender = option.value;
+                    break;
+                }
+            }
+            
+            var password = document.getElementById("password").value;
+            var bloodgrp = document.getElementById("bloodgrp").value;
+            var state = document.getElementById("state").value;
+            var city = document.getElementById("city").value;
+
+
+
+            var detail = { "name": name, "phoneno": phoneNo, "email": email, "gender": gender, "password": password, "bloodgrp": bloodgrp, "state": state, "city": city };
+            var registerServiceObj = new registerService();
+             registerServiceObj.register(detail);
+            
+            // var usersTemp = JSON.parse(localStorage.getItem("USERS"));
+            //var users = usersTemp ? usersTemp : [];
+            //users.push(userObj);
+            //localStorage.setItem("USERS", JSON.stringify(users));
+            
+                //  alert("Registered successfully");
+                
+
+            
+           
+          
+        }
+    </script>
+</body>
+
+</html>
